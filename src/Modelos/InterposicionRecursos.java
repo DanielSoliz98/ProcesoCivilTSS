@@ -17,7 +17,10 @@ public class InterposicionRecursos extends Etapa{
 
     @Override
     public void ejecutarEtapa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.agregarMensaje("Inicia la etapa de Interposicion de Recursos");
+        this.agregarMensaje("Recursos disponibles para utilizar: ");
+        this.agregarMensaje("Reposicion, Apleacion, Casacion, Compulsa o Revision de Sentencia.");
+        
     }
     
 }
