@@ -11,8 +11,15 @@ package Modelos;
  */
 public class Contestacion extends Etapa {
 
+    private boolean allanamiento;
+    private boolean excepcionesPrevias;
+    private boolean reconvencion;
+
     public Contestacion(Etapa etapa) {
         super("Contestacion", etapa);
+        this.allanamiento = false;
+        this.excepcionesPrevias = false;
+        this.reconvencion = false;
     }
 
     @Override
@@ -36,12 +43,15 @@ public class Contestacion extends Etapa {
             this.agregarMensaje("Allanamiento a la demanda por el demandado.");
             this.anadirDiasTranscurridos(TransformadaInversa.getX(1, 5));
             this.agregarMensaje("Se dicta sentencia inmediatamente.");
+            this.allanamiento = true;
             this.finalizarProceso();
         } else {
             if (DistribucionBernoulli.desicion(0.70)) {
                 this.agregarMensaje("Planteamiento de Excepciones Previas en traslado al demandante.");
+                this.excepcionesPrevias = true;
                 if (DistribucionBernoulli.desicion(0.35)) {
                     this.agregarMensaje("Reconvencion de la parte demanda.");
+                    this.reconvencion = true;
                     int demandante = TransformadaInversa.getX(5, 30);
                     this.agregarMensaje("El demandante contestara en " + demandante + " dias.");
                     this.anadirDiasTranscurridos(demandante);
@@ -55,6 +65,7 @@ public class Contestacion extends Etapa {
             } else {
                 if (DistribucionBernoulli.desicion(0.35)) {
                     this.agregarMensaje("Reconvencion de la parte demanda.");
+                    this.reconvencion = true;
                     int demandante = TransformadaInversa.getX(5, 30);
                     this.agregarMensaje("El demandante contestara en " + demandante + " dias.");
                     this.anadirDiasTranscurridos(demandante);
@@ -69,6 +80,18 @@ public class Contestacion extends Etapa {
         int audienciaPreliminar = TransformadaInversa.getX(1, 5);
         this.agregarMensaje("Audiencia Preliminar en " + audienciaPreliminar + " dias.");
         this.anadirDiasTranscurridos(audienciaPreliminar);
+    }
+    
+    public boolean reconvencion(){
+        return this.reconvencion;
+    }
+    
+    public boolean excepcionesPrevias(){
+        return this.excepcionesPrevias;
+    }
+    
+    public boolean allanamiento(){
+        return this.allanamiento;
     }
 
 }
