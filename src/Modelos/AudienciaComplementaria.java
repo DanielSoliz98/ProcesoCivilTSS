@@ -9,6 +9,15 @@ package Modelos;
  *
  * @author danie
  */
-public class AudienciaComplementaria {
+public class AudienciaComplementaria extends Etapa{
+
+    public AudienciaComplementaria(Etapa etapa) {
+        super("Audiencia Complementaria", etapa);
+    }
+    
+    @Override
+    public void ejecutarEtapa() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
