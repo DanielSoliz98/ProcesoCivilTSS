@@ -44,7 +44,7 @@ public class Contestacion extends Etapa {
             this.anadirDiasTranscurridos(TransformadaInversa.getX(1, 5));
             this.agregarMensaje("Se dicta sentencia inmediatamente.");
             this.allanamiento = true;
-            this.finalizarProceso();
+            this.finalizarEtapa();
         } else {
             if (DistribucionBernoulli.desicion(0.70)) {
                 this.agregarMensaje("Planteamiento de Excepciones Previas en traslado al demandante.");
@@ -80,18 +80,18 @@ public class Contestacion extends Etapa {
         int audienciaPreliminar = TransformadaInversa.getX(1, 5);
         this.agregarMensaje("Audiencia Preliminar en " + audienciaPreliminar + " dias.");
         this.anadirDiasTranscurridos(audienciaPreliminar);
-    }
-    
-    public boolean reconvencion(){
-        return this.reconvencion;
-    }
-    
-    public boolean excepcionesPrevias(){
-        return this.excepcionesPrevias;
-    }
-    
-    public boolean allanamiento(){
-        return this.allanamiento;
+        this.finalizarEtapa();
     }
 
+    public boolean reconvencion() {
+        return this.reconvencion;
+    }
+
+    public boolean excepcionesPrevias() {
+        return this.excepcionesPrevias;
+    }
+
+    public boolean allanamiento() {
+        return this.allanamiento;
+    }
 }
