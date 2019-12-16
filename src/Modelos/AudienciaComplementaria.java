@@ -17,7 +17,9 @@ public class AudienciaComplementaria extends Etapa{
     
     @Override
     public void ejecutarEtapa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.agregarMensaje("Inicia la etapa de Audiencia COmplementaia");
+        
+        this.agregarMensaje("Termina la etapa de Audiencia COmplementaia");
     }
     
 }

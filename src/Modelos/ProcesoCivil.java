@@ -23,11 +23,11 @@ public class ProcesoCivil {
     }
     
     public ArrayList<String> getMensajesProceso(){
-        for(Etapa etapa: etapasProceso){
-            for(String mensaje: etapa.getMensages()){
+        etapasProceso.forEach((etapa) -> {
+            etapa.getMensages().forEach((mensaje) -> {
                 this.mensajes.add(mensaje);
-            }
-        }
+            });
+        });
         return this.mensajes;
     }
     

@@ -19,6 +19,7 @@ public class ConciliacionPrevia extends Etapa{
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Conciliacion Previa");
         
+        this.agregarMensaje("Termina la etapa de Conciliacion Previa");
     }
     
 }
