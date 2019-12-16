@@ -9,7 +9,7 @@ package Modelos;
  *
  * @author danie
  */
-public class Contestacion extends Etapa{
+public class Contestacion extends Etapa {
 
     public Contestacion(Etapa etapa) {
         super("Contestacion", etapa);
@@ -18,8 +18,8 @@ public class Contestacion extends Etapa{
     @Override
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Contestacion");
-        
+
         this.agregarMensaje("Termina la etapa de Contestacion");
     }
-    
+
 }

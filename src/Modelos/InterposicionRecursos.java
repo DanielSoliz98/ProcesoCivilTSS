@@ -9,7 +9,7 @@ package Modelos;
  *
  * @author danie
  */
-public class InterposicionRecursos extends Etapa{
+public class InterposicionRecursos extends Etapa {
 
     public InterposicionRecursos(Etapa etapa) {
         super("Interposicion de Recursos", etapa);
@@ -20,7 +20,7 @@ public class InterposicionRecursos extends Etapa{
         this.agregarMensaje("Inicia la etapa de Interposicion de Recursos");
         this.agregarMensaje("Recursos disponibles para utilizar: ");
         this.agregarMensaje("Reposicion, Apleacion, Casacion, Compulsa o Revision de Sentencia.");
-        
+
     }
-    
+
 }

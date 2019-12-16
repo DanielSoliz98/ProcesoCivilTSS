@@ -18,8 +18,8 @@ public class AudienciaPreliminar extends Etapa {
     @Override
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Audiencia Preliminar");
-        
+
         this.agregarMensaje("Termina la etapa de Audiencia Preliminar");
     }
-    
+
 }

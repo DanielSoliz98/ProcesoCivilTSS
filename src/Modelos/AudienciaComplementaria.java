@@ -9,17 +9,17 @@ package Modelos;
  *
  * @author danie
  */
-public class AudienciaComplementaria extends Etapa{
+public class AudienciaComplementaria extends Etapa {
 
     public AudienciaComplementaria(Etapa etapa) {
         super("Audiencia Complementaria", etapa);
     }
-    
+
     @Override
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Audiencia COmplementaia");
-        
+
         this.agregarMensaje("Termina la etapa de Audiencia COmplementaia");
     }
-    
+
 }

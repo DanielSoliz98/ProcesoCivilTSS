@@ -9,7 +9,7 @@ package Modelos;
  *
  * @author danie
  */
-public class CitacionEmplazamiento extends Etapa{
+public class CitacionEmplazamiento extends Etapa {
 
     public CitacionEmplazamiento(Etapa etapa) {
         super("Citacion o Emplazamiento", etapa);
@@ -18,8 +18,8 @@ public class CitacionEmplazamiento extends Etapa{
     @Override
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Citacion y Emplazamiento");
-        
+
         this.agregarMensaje("Termina la etapa de Citacion y Emplazamiento");
     }
-    
+
 }
