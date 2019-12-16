@@ -17,7 +17,8 @@ public class ConciliacionPrevia extends Etapa{
 
     @Override
     public void ejecutarEtapa() {
-        System.out.println("Se ejecuta la etapa " + this.getNombreEtapa());
+        this.agregarMensaje("Inicia la etapa de Conciliacion Previa");
+        
     }
     
 }
