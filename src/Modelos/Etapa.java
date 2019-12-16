@@ -59,5 +59,9 @@ public abstract class Etapa {
         return this.mensajes;
     }
 
+    public Etapa getEtapaAnterior() {
+        return this.etapaAnterior;
+    }
+
     public abstract void ejecutarEtapa();
 }
