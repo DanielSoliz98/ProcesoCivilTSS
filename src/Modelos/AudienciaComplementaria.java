@@ -10,11 +10,11 @@ package Modelos;
  * @author danie
  */
 public class AudienciaComplementaria extends Etapa {
-    
+
     public AudienciaComplementaria(Etapa etapa) {
         super("Audiencia Complementaria", etapa);
     }
-    
+
     @Override
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Audiencia COmplementaia");
@@ -27,14 +27,14 @@ public class AudienciaComplementaria extends Etapa {
         }
         this.agregarMensaje("Termina la etapa de Audiencia COmplementaia");
     }
-    
+
     private void faltaDiligenciamietoPrueba() {
         if (DistribucionBernoulli.desicion(0.10)) {
             int reanudacion = TransformadaInversa.getX(5, 15);
             this.agregarMensaje("Reanudacion de audiencia complementaria en " + reanudacion + " dias");
             this.anadirDiasTranscurridos(reanudacion);
             this.alegatos();
-        }else{
+        } else {
             this.alegatos();
         }
     }
@@ -44,5 +44,5 @@ public class AudienciaComplementaria extends Etapa {
         this.anadirDiasTranscurridos(1);
         this.finDeEtapa();
     }
-    
+
 }
