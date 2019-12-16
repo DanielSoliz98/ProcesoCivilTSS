@@ -73,4 +73,8 @@ public class AudienciaPreliminar extends Etapa {
     private boolean diligenciamientoPruebas() {
         return DistribucionBernoulli.desicion(0.75);
     }
+    
+    public boolean audienciaComplementaria(){
+        return this.audienciaComplementaria;
+    }
 }
