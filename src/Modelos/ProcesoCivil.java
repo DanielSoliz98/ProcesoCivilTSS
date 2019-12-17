@@ -66,11 +66,13 @@ public class ProcesoCivil {
     }
 
     public ArrayList<String> getMensajesProceso() {
+        this.mensajes.add("Inicia Proceso Civil " + this.getIdProceso());
         etapasProceso.forEach((etapa) -> {
             etapa.getMensages().forEach((mensaje) -> {
                 this.mensajes.add(mensaje);
             });
         });
+        this.mensajes.add("Termina Proceso Civil " + this.getIdProceso());
         return this.mensajes;
     }
 
