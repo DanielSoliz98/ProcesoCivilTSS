@@ -27,7 +27,7 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lienzo1 = new Vistas.Lienzo();
+        lienzo1 = new Vistas.Animacion();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -147,6 +147,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private Vistas.Lienzo lienzo1;
+    private Vistas.Animacion lienzo1;
     // End of variables declaration//GEN-END:variables
 }

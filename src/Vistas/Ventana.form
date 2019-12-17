@@ -51,7 +51,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="Vistas.Lienzo" name="lienzo1">
+    <Container class="Vistas.Animacion" name="lienzo1">
 
       <Layout>
         <DimensionLayout dim="0">

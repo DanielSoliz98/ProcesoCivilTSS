@@ -12,7 +12,7 @@ import java.awt.Graphics;
  *
  * @author danie
  */
-public class Lienzo extends javax.swing.JPanel implements Runnable {
+public class Animacion extends javax.swing.JPanel implements Runnable {
 
     /**
      * Creates new form lienzo
@@ -21,7 +21,7 @@ public class Lienzo extends javax.swing.JPanel implements Runnable {
     int y = this.getHeight() / 2;
     Thread hilo;
 
-    public Lienzo() {
+    public Animacion() {
         initComponents();
         hilo = new Thread(this);
     }
