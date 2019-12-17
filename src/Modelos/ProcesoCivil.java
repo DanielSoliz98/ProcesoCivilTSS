@@ -19,7 +19,7 @@ public class ProcesoCivil {
     }
 
     private void crearEtapas() {
-        Etapa conciliacion = new ConciliacionPrevia(null);
+        Etapa conciliacion = new ConciliacionPrevia();
         if (conciliacion.finDeProceso()) {
             this.etapasProceso.add(conciliacion);
         } else {

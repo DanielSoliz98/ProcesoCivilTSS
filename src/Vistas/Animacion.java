@@ -1,24 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vistas;
 
+import Modelos.ConciliacionPrevia;
+import Modelos.Demanda;
+import Modelos.Etapa;
+import Modelos.ProcesoCivil;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author danie
  */
 public class Animacion extends javax.swing.JPanel implements Runnable {
 
-    /**
-     * Creates new form lienzo
-     */
+    boolean stop = false;
     int x = this.getWidth() / 2;
     int y = this.getHeight() / 2;
     Thread hilo;
@@ -67,23 +64,185 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
     @Override
     public void run() {
         try {
-            while (true) {
+            ProcesoCivil procesoCivil = new ProcesoCivil(1);
+            ArrayList<Etapa> etapas = procesoCivil.getEtapasProcesoCivil();
+            procesoCivil.getMensajesProceso().forEach((a) -> {
+                System.out.println(a);
+            });
+            while (!stop) {
                 for (int i = 1; i <= 6; i++) {
-                    while (x <= ((getWidth() / 6 - 3) * i) - 20) {
-                        Thread.sleep(50);
-                        x += 5;
-                        repaint();
+                    System.out.println(etapas.size());
+                    if (i == 1) {
+                        while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+                            Thread.sleep(50);
+                            x += 5;
+                            repaint();
+                        }
+                        while (y < ((getHeight() / 6 - 7) * i) - 20) {
+                            Thread.sleep(50);
+                            y += 5;
+                            repaint();
+                        }
+
+                        if (etapas.size() == 1) {
+                            while (y < getHeight() - 20) {
+                                Thread.sleep(50);
+                                y += 5;
+                                repaint();
+                            }
+                            while (x <= getWidth() - 20) {
+                                Thread.sleep(50);
+                                x += 5;
+                                repaint();
+                            }
+                            this.stop();
+                        }
                     }
-                    while (y < ((getHeight() / 6 - 7) * i) - 20) {
-                        Thread.sleep(50);
-                        y += 5;
-                        repaint();
+                    if (i == 2) {
+                        while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+                            Thread.sleep(50);
+                            x += 5;
+                            repaint();
+                        }
+                        while (y < ((getHeight() / 6 - 7) * i) - 20) {
+                            Thread.sleep(50);
+                            y += 5;
+                            repaint();
+                        }
+                        if (etapas.size() == 2) {
+                            while (y < getHeight() - 20) {
+                                Thread.sleep(50);
+                                y += 5;
+                                repaint();
+                            }
+                            while (x <= getWidth() - 20) {
+                                Thread.sleep(50);
+                                x += 5;
+                                repaint();
+                            }
+                            this.stop();
+                        }
                     }
+                    if (i == 3) {
+                        while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+                            Thread.sleep(50);
+                            x += 5;
+                            repaint();
+                        }
+                        while (y < ((getHeight() / 6 - 7) * i) - 20) {
+                            Thread.sleep(50);
+                            y += 5;
+                            repaint();
+                        }
+                        if (etapas.size() == 3) {
+                            while (y < getHeight() - 20) {
+                                Thread.sleep(50);
+                                y += 5;
+                                repaint();
+                            }
+                            while (x <= getWidth() - 20) {
+                                Thread.sleep(50);
+                                x += 5;
+                                repaint();
+                            }
+                            this.stop();
+                        }
+                    }
+                    if (i == 4) {
+                        while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+                            Thread.sleep(50);
+                            x += 5;
+                            repaint();
+                        }
+                        while (y < ((getHeight() / 6 - 7) * i) - 20) {
+                            Thread.sleep(50);
+                            y += 5;
+                            repaint();
+                        }
+                        if (etapas.size() == 4) {
+                            while (y < getHeight() - 20) {
+                                Thread.sleep(50);
+                                y += 5;
+                                repaint();
+                            }
+                            while (x <= getWidth() - 20) {
+                                Thread.sleep(50);
+                                x += 5;
+                                repaint();
+                            }
+                            this.stop();
+                        }
+                    }
+                    if (i == 5) {
+                        while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+                            Thread.sleep(50);
+                            x += 5;
+                            repaint();
+                        }
+                        while (y < ((getHeight() / 6 - 7) * i) - 20) {
+                            Thread.sleep(50);
+                            y += 5;
+                            repaint();
+                        }
+                        if (etapas.size() == 5) {
+                            while (y < getHeight() - 20) {
+                                Thread.sleep(50);
+                                y += 5;
+                                repaint();
+                            }
+                            while (x <= getWidth() - 20) {
+                                Thread.sleep(50);
+                                x += 5;
+                                repaint();
+                            }
+                            this.stop();
+                        }
+                    }
+                    if (i == 6) {
+                        while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+                            Thread.sleep(50);
+                            x += 5;
+                            repaint();
+                        }
+                        while (y < ((getHeight() / 6 - 7) * i) - 20) {
+                            Thread.sleep(50);
+                            y += 5;
+                            repaint();
+                        }
+                        if (etapas.size() == 6) {
+                            while (y < getHeight() - 20) {
+                                Thread.sleep(50);
+                                y += 5;
+                                repaint();
+                            }
+                            while (x <= getWidth() - 20) {
+                                Thread.sleep(50);
+                                x += 5;
+                                repaint();
+                            }
+                            this.stop();
+                        }
+                    }
+
+//                    while (x <= ((getWidth() / 6 - 3) * i) - 20) {
+//                        Thread.sleep(50);
+//                        x += 5;
+//                        repaint();
+//                    }
+//                    while (y < ((getHeight() / 6 - 7) * i) - 20) {
+//                        Thread.sleep(50);
+//                        y += 5;
+//                        repaint();
+//                    }
                 }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void stop() {
+        this.stop = true;
     }
 
 

@@ -5,7 +5,7 @@ package Modelos;
  */
 public class ConciliacionPrevia extends Etapa {
 
-    public ConciliacionPrevia(Etapa etapa) {
+    public ConciliacionPrevia() {
         super("Conciliacion Previa", null);
     }
 
