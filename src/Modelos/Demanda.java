@@ -13,7 +13,6 @@ public class Demanda extends Etapa {
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Demanda");
         this.revisionDemanda();
-        this.agregarMensaje("Termina la etapa de Demanda");
     }
 
     private void revisionDemanda() {
@@ -37,6 +36,7 @@ public class Demanda extends Etapa {
             this.revisionDemanda();
         } else if (caso > 0.98 && caso < 1) {
             this.agregarMensaje("Demanda manifiestamente improponible");
+            this.agregarMensaje("Termina la etapa de Demanda");
             this.anadirDiasTranscurridos(1);
             this.finalizarProceso();
         }
@@ -44,6 +44,7 @@ public class Demanda extends Etapa {
 
     private void citacionDemandado() {
         int citacion = TransformadaInversa.getX(1, 10);
+        this.agregarMensaje("Termina la etapa de Demanda");
         this.agregarMensaje("Citacion a la parte demandada en " + citacion + " dias.");
         this.anadirDiasTranscurridos(citacion);
         this.finalizarEtapa();
