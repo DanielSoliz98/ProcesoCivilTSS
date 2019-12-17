@@ -21,6 +21,7 @@ public abstract class Etapa {
         this.diasTranscurridos = 0;
         this.finProceso = false;
         this.finEtapa = false;
+        this.ejecutarEtapa();
     }
 
     public void finalizarEtapa() {
