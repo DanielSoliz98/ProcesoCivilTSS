@@ -6,7 +6,9 @@
 package Vistas;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,13 +25,17 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
 
     public Animacion() {
         initComponents();
+        this.setSize(1560, 810);
         hilo = new Thread(this);
     }
 
     public void paint(Graphics g) {
-        g.setColor(getBackground());
-        g.fillRect(0, 0, getWidth(), getHeight());
-        g.setColor(Color.red);
+        Dimension tamanio = getSize();
+        ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/Imagenes/procesocivil.png"));
+        g.drawImage(imagenFondo.getImage(), 0, 0, tamanio.width, tamanio.height, null);
+        setOpaque(false);
+        super.paintComponent(g);
+        g.setColor(Color.blue);
         g.fillOval(x, y, 15, 15);
     }
 
@@ -55,17 +61,7 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
     private void initComponents() {
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setLayout(new javax.swing.OverlayLayout(this));
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
@@ -73,12 +69,12 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
         try {
             while (true) {
                 for (int i = 1; i <= 6; i++) {
-                    while (x <= (getWidth() / 6 * i) - 20) {
+                    while (x <= ((getWidth() / 6 - 3) * i) - 20) {
                         Thread.sleep(50);
                         x += 5;
                         repaint();
                     }
-                    while (y < (getHeight() / 6 * i) - 20) {
+                    while (y < ((getHeight() / 6 - 7) * i) - 20) {
                         Thread.sleep(50);
                         y += 5;
                         repaint();
