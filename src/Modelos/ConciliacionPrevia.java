@@ -57,14 +57,12 @@ public class ConciliacionPrevia extends Etapa {
             this.agregarMensaje("Termina la etapa de Conciliacion Previa.");
             this.agregarMensaje("Se pasa a etapa de demanda");
             this.anadirDiasTranscurridos(1);
-            this.presentacionDemanda();
             this.finalizarEtapa();
         } else if (conciliacion > 0.45 && conciliacion <= 0.75) {
             this.agregarMensaje("Conciliacion Parcial");
             this.agregarMensaje("Termina la etapa de Conciliacion Previa.");
             this.agregarMensaje("Se pasa a etapa de demanda");
             this.anadirDiasTranscurridos(1);
-            this.presentacionDemanda();
             this.finalizarEtapa();
         } else if (conciliacion > 0.75 && conciliacion <= 1) {
             this.agregarMensaje("Ambas partes no concurren a la audiencia");
@@ -72,11 +70,5 @@ public class ConciliacionPrevia extends Etapa {
             this.anadirDiasTranscurridos(1);
             this.finalizarProceso();
         }
-    }
-
-    private void presentacionDemanda() {
-        int demanda = TransformadaInversa.getX(1, 10);
-        this.agregarMensaje("Se presenta demanda en: " + demanda + " dias.");
-        this.anadirDiasTranscurridos(demanda);
     }
 }

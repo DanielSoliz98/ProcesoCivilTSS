@@ -9,16 +9,23 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
  */
 public class Animacion extends javax.swing.JPanel implements Runnable {
 
+    VentanaSimulacion ventana;
     boolean stop = false;
     int x = this.getWidth() / 2;
     int y = this.getHeight() / 2;
     Thread hilo;
+    private ProcesoCivil procesoCivil;
 
     public Animacion() {
         initComponents();
@@ -36,16 +43,9 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
         g.fillOval(x, y, 15, 15);
     }
 
-    public void inicio() {
+    public void inicio(VentanaSimulacion ventana) {
         hilo.start();
-    }
-
-    public void pausa() {
-        hilo.suspend();
-    }
-
-    public void continuar() {
-        hilo.resume();
+        this.ventana = ventana;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
     @Override
     public void run() {
         try {
-            ProcesoCivil procesoCivil = new ProcesoCivil(1);
+            procesoCivil = new ProcesoCivil(1);
             ArrayList<Etapa> etapas = procesoCivil.getEtapasProcesoCivil();
             procesoCivil.getMensajesProceso().forEach((a) -> {
                 System.out.println(a);
@@ -223,17 +223,6 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
                             this.stop();
                         }
                     }
-
-//                    while (x <= ((getWidth() / 6 - 3) * i) - 20) {
-//                        Thread.sleep(50);
-//                        x += 5;
-//                        repaint();
-//                    }
-//                    while (y < ((getHeight() / 6 - 7) * i) - 20) {
-//                        Thread.sleep(50);
-//                        y += 5;
-//                        repaint();
-//                    }
                 }
             }
         } catch (Exception e) {
@@ -241,8 +230,34 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
         }
     }
 
-    public void stop() {
+    private void stop() {
         this.stop = true;
+        this.mostrarResultados();
+    }
+
+    public void mostrarResultados() {
+        String titulo = "Resultados Proceso Civil";
+        ArrayList<Etapa> etapas = this.procesoCivil.getEtapasProcesoCivil();
+        try {
+            DefaultCategoryDataset ds = new DefaultCategoryDataset();
+            etapas.forEach((e) -> {
+                ds.addValue(e.getDiasTranscurridosEtapa(), e.getNombreEtapa() + " dias transcurridos ", "");
+            });
+            ds.addValue(this.procesoCivil.getDiasTotalesTranscurridos(), "Total Dias Proceso Civil", "");
+            JFreeChart grafica = ChartFactory.createBarChart3D(titulo, "", "", ds, PlotOrientation.HORIZONTAL, true, true, true);
+            ChartFrame f = new ChartFrame(" ", grafica);
+            f.setSize(1000, 600);
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
+            this.ventana.jButton2.setEnabled(true);
+            this.ventana.jButton3.setEnabled(true);
+        } catch (Exception e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    public ProcesoCivil getProcesoCivil() {
+        return this.procesoCivil;
     }
 
 

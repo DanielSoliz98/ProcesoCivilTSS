@@ -12,6 +12,7 @@ public class Demanda extends Etapa {
     @Override
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Demanda");
+        this.presentacionDemanda();
         this.revisionDemanda();
     }
 
@@ -48,6 +49,12 @@ public class Demanda extends Etapa {
         this.agregarMensaje("Citacion a la parte demandada en " + citacion + " dias.");
         this.anadirDiasTranscurridos(citacion);
         this.finalizarEtapa();
+    }
+
+    private void presentacionDemanda() {
+        int demanda = TransformadaInversa.getX(1, 10);
+        this.agregarMensaje("Se presenta demanda en: " + demanda + " dias.");
+        this.anadirDiasTranscurridos(demanda);
     }
 
 }
