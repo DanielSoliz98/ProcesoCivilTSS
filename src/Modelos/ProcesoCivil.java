@@ -3,7 +3,7 @@ package Modelos;
 import java.util.ArrayList;
 
 /*
-*
+* Proceso civil donde se encuentran las etapas.
  */
 public class ProcesoCivil {
 

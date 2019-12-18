@@ -3,7 +3,7 @@ package Modelos;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase abstracta Etapa
  */
 public abstract class Etapa {
 

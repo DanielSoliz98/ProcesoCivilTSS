@@ -1,8 +1,7 @@
 package Vistas;
 
 /**
- *
- * @author danie
+ * Main Class
  */
 public class Main {
 

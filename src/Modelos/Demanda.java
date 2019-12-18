@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Etapa de Demanda.
  */
 public class Demanda extends Etapa {
 

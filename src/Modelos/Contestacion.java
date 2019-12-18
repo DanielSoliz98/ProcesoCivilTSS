@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Etapa de Contestacion.
  */
 public class Contestacion extends Etapa {
 
@@ -26,7 +26,6 @@ public class Contestacion extends Etapa {
                 this.tipoContestacion();
             }
         }
-        this.agregarMensaje("Termina la etapa de Contestacion");
     }
 
     private void tipoContestacion() {
@@ -34,6 +33,7 @@ public class Contestacion extends Etapa {
             this.agregarMensaje("Allanamiento a la demanda por el demandado.");
             this.anadirDiasTranscurridos(TransformadaInversa.getX(1, 5));
             this.setAllanamiento();
+            this.agregarMensaje("Termina la etapa de Contestacion");
             this.finalizarEtapa();
         } else {
             if (DistribucionBernoulli.desicion(0.70)) {
@@ -67,6 +67,7 @@ public class Contestacion extends Etapa {
     }
 
     private void audienciaPrliminar() {
+        this.agregarMensaje("Termina la etapa de Contestacion");
         int audienciaPreliminar = TransformadaInversa.getX(1, 5);
         this.agregarMensaje("Audiencia Preliminar en " + audienciaPreliminar + " dias.");
         this.anadirDiasTranscurridos(audienciaPreliminar);

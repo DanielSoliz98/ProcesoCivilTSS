@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Etapa Audiencia Preliminar
  */
 public class AudienciaPreliminar extends Etapa {
 

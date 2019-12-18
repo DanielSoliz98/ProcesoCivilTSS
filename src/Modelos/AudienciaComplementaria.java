@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Etapa Audiencia COmplementaria
  */
 public class AudienciaComplementaria extends Etapa {
 
@@ -11,7 +11,7 @@ public class AudienciaComplementaria extends Etapa {
 
     @Override
     public void ejecutarEtapa() {
-        this.agregarMensaje("Inicia la etapa de Audiencia COmplementaia");
+        this.agregarMensaje("Inicia la etapa de Audiencia Cmplementaia");
         Etapa e = this.getEtapaAnterior();
         if ("Audiencia Preliminar".equals(e.getNombreEtapa())) {
             AudienciaPreliminar preliminar = (AudienciaPreliminar) e;
@@ -19,7 +19,7 @@ public class AudienciaComplementaria extends Etapa {
                 this.faltaDiligenciamietoPrueba();
             }
         }
-        this.agregarMensaje("Termina la etapa de Audiencia COmplementaia");
+        this.agregarMensaje("Termina la etapa de Audiencia Complementaia");
     }
 
     private void faltaDiligenciamietoPrueba() {

@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Etapa de Conciliacion Previa.
  */
 public class ConciliacionPrevia extends Etapa {
 

@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Funcion de Desicion.
  */
 public class DistribucionBernoulli {
 

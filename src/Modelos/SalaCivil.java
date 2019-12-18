@@ -3,8 +3,7 @@ package Modelos;
 import java.util.ArrayList;
 
 /**
- *
- * @author danie
+ * Implementacion para una simulacion personalizada.
  */
 public class SalaCivil extends Thread {
 

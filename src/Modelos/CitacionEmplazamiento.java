@@ -1,7 +1,7 @@
 package Modelos;
 
 /**
- *
+ * Etapa Citacion y Emplazamiento.
  */
 public class CitacionEmplazamiento extends Etapa {
 
@@ -22,7 +22,7 @@ public class CitacionEmplazamiento extends Etapa {
         } else {
             if (DistribucionBernoulli.desicion(0.90)) {
                 int contestacion = TransformadaInversa.getX(5, 30);
-                this.agregarMensaje("Contestacion a citacion por la parte demanda en " + contestacion + " dias.");
+                this.agregarMensaje("Contestacion a citacion por la parte demandada en " + contestacion + " dias.");
                 this.anadirDiasTranscurridos(contestacion);
                 this.finalizarEtapa();
             } else {

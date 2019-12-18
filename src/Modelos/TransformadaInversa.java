@@ -1,8 +1,7 @@
 package Modelos;
 
 /**
- *
- * @author danie
+ * Transformada inversa para distribucion uniforme simulacion.
  */
 public class TransformadaInversa {
 

@@ -16,7 +16,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *
+ * Clase animacion de Proceso Civil
  */
 public class Animacion extends javax.swing.JPanel implements Runnable {
 
