@@ -1,5 +1,6 @@
 package Vistas;
 
+import Modelos.ProcesoCivil;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -8,9 +9,10 @@ import java.awt.Toolkit;
  */
 public class Resultados extends javax.swing.JFrame {
 
-    /**
-     */
-    public Resultados() {
+    private ProcesoCivil proceso;
+
+    public Resultados(ProcesoCivil proceso) {
+        this.proceso = proceso;
         initComponents();
         this.setSize(960, 540);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -28,6 +30,7 @@ public class Resultados extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Resultados por Etapa Proceso Civil");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

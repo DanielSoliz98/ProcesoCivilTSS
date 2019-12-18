@@ -236,7 +236,7 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
     }
 
     public void mostrarResultados() {
-        String titulo = "Resultados Proceso Civil";
+        String titulo = "Resultados Graficos en Dias Proceso Civil";
         ArrayList<Etapa> etapas = this.procesoCivil.getEtapasProcesoCivil();
         try {
             DefaultCategoryDataset ds = new DefaultCategoryDataset();
