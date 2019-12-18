@@ -29,13 +29,16 @@ public class CitacionEmplazamiento extends Etapa {
                 this.agregarMensaje("El demandado no contesto a la citacion");
                 this.agregarMensaje("Se declara al demandado en rebeldia.");
                 this.anadirDiasTranscurridos(30);
-                this.rebeldia = true;
+                this.setRebeldia();
             }
 
         }
         this.agregarMensaje("Termina la etapa de Citacion y Emplazamiento");
     }
 
+    public void setRebeldia(){
+        this.rebeldia = true;
+    }
     public boolean enRebeldia() {
         return this.rebeldia;
     }

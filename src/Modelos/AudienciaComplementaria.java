@@ -13,7 +13,7 @@ public class AudienciaComplementaria extends Etapa {
     public void ejecutarEtapa() {
         this.agregarMensaje("Inicia la etapa de Audiencia COmplementaia");
         Etapa e = this.getEtapaAnterior();
-        if (e.getNombreEtapa() == "Audiencia Preliminar") {
+        if ("Audiencia Preliminar".equals(e.getNombreEtapa())) {
             AudienciaPreliminar preliminar = (AudienciaPreliminar) e;
             if (preliminar.audienciaComplementaria()) {
                 this.faltaDiligenciamietoPrueba();

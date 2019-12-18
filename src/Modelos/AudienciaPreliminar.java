@@ -5,11 +5,10 @@ package Modelos;
  */
 public class AudienciaPreliminar extends Etapa {
 
-    private boolean audienciaComplementaria;
+    private boolean audienciaComplementaria = false;
 
     public AudienciaPreliminar(Etapa etapa) {
         super("Audiencia Preliminar", etapa);
-        this.audienciaComplementaria = false;
     }
 
     @Override
@@ -21,6 +20,8 @@ public class AudienciaPreliminar extends Etapa {
                 Contestacion c = (Contestacion) e;
                 if (c.allanamiento()) {
                     this.anadirDiasTranscurridos(1);
+                    this.agregarMensaje("Se dicta sentencia inmediatamente.");
+                    this.agregarMensaje("Termina la etapa de Audiencia Preliminar");
                     this.finalizarProceso();
                 } else {
                     if (this.conciliacionIntraprocesal()) {
@@ -34,14 +35,16 @@ public class AudienciaPreliminar extends Etapa {
                         if (this.diligenciamientoPruebas()) {
                             this.agregarMensaje("Se diligenciaron todas las pruebas.");
                             this.agregarMensaje("Alegacion de las partes. Se dicta sentencia.");
+                            this.agregarMensaje("Termina la etapa de Audiencia Preliminar");
                             this.anadirDiasTranscurridos(1);
                             this.finalizarProceso();
                         } else {
                             this.agregarMensaje("No se diligenciaron todas las pruebas.");
                             int complementaria = TransformadaInversa.getX(15, 1);
+                            this.agregarMensaje("Termina la etapa de Audiencia Preliminar");
                             this.agregarMensaje("Audiencia Complementaria en " + complementaria + " dias");
                             this.anadirDiasTranscurridos(complementaria);
-                            this.audienciaComplementaria = true;
+                            this.setAudienciaComplementaria();
                             this.finalizarEtapa();
                         }
                     }
@@ -53,7 +56,6 @@ public class AudienciaPreliminar extends Etapa {
             this.finalizarProceso();
         }
 
-        this.agregarMensaje("Termina la etapa de Audiencia Preliminar");
     }
 
     private boolean asistenciaPartes() {
@@ -66,6 +68,10 @@ public class AudienciaPreliminar extends Etapa {
 
     private boolean diligenciamientoPruebas() {
         return DistribucionBernoulli.desicion(0.75);
+    }
+
+    public void setAudienciaComplementaria() {
+        this.audienciaComplementaria = true;
     }
 
     public boolean audienciaComplementaria() {
