@@ -7,12 +7,21 @@ package Vistas;
 
 import Modelos.ProcesoCivil;
 import Modelos.SalaCivil;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -23,6 +32,7 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
     private Inicio ventanaPrincipal;
     private boolean finSimulacion = false;
     private ArrayList<SalaCivil> salas;
+    private Grafica grafica;
 
     public SimulacionPersonalizada(Inicio principal) {
         this.ventanaPrincipal = principal;
@@ -129,6 +139,11 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("Ver Graficas");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton4.setText("Atras");
@@ -254,12 +269,19 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         jButton5.setEnabled(false);
         jButton1.setEnabled(true);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
         jComboBox1.setSelectedIndex(0);
         jComboBox2.setSelectedIndex(0);
         this.salas = null;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        grafica = new Grafica(salas);
+        grafica.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -308,5 +330,7 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
             model.addRow(new Object[]{"Sala Civil: " + (sala.getIdSala() + 1), sala.getProcesos().size(),
                 sala.getMediaProcesos() + " dias", sala.procesosConSentencia() + " procesos"});
         });
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
     }
 }
