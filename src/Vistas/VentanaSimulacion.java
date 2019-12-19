@@ -2,6 +2,9 @@ package Vistas;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Muestra los graficos de simulacion y sus opciones.
@@ -141,7 +144,11 @@ public class VentanaSimulacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.resultados = new Resultados(this.ventanaSimulacion.getProcesoCivil());
+        try {
+            this.resultados = new Resultados(this.ventanaSimulacion.getProcesoCivil());
+        } catch (IOException ex) {
+            Logger.getLogger(VentanaSimulacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.resultados.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
