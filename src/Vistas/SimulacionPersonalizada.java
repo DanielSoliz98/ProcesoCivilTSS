@@ -5,11 +5,15 @@
  */
 package Vistas;
 
+import Modelos.PdfGenerator;
 import Modelos.ProcesoCivil;
 import Modelos.SalaCivil;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +37,7 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
     private boolean finSimulacion = false;
     private ArrayList<SalaCivil> salas;
     private Grafica grafica;
+    private PdfGenerator pdf;
 
     public SimulacionPersonalizada(Inicio principal) {
         this.ventanaPrincipal = principal;
@@ -136,6 +141,11 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Generar Reporte PDF");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("Ver Graficas");
@@ -282,6 +292,23 @@ public class SimulacionPersonalizada extends javax.swing.JFrame implements Runna
         grafica = new Grafica(salas);
         grafica.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            pdf = new PdfGenerator(null);
+        } catch (IOException ex) {
+            Logger.getLogger(Resultados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.pdf.generarPdfSalaCivil(this.salas);
+        if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File(this.pdf.pathPdfSalaCivil());
+                Desktop.getDesktop().open(myFile);
+            } catch (IOException ex) {
+                // no application registered for PDFs
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

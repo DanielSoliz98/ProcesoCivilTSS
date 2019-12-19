@@ -9,6 +9,8 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,7 +22,6 @@ public class Resultados extends javax.swing.JFrame {
     private PdfGenerator pdf;
 
     public Resultados(ProcesoCivil proceso) throws IOException {
-        pdf = new PdfGenerator(proceso);
         this.proceso = proceso;
         initComponents();
         this.setSize(960, 540);
@@ -189,10 +190,15 @@ public class Resultados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.pdf.generarPdf();
+        try {
+            pdf = new PdfGenerator(this.proceso);
+        } catch (IOException ex) {
+            Logger.getLogger(Resultados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.pdf.generarPdfProcesoCivil();
         if (Desktop.isDesktopSupported()) {
             try {
-                File myFile = new File(this.pdf.pathPdfFile());
+                File myFile = new File(this.pdf.pathPdfProcesoCivil());
                 Desktop.getDesktop().open(myFile);
             } catch (IOException ex) {
                 // no application registered for PDFs

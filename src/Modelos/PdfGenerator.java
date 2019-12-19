@@ -24,7 +24,8 @@ public class PdfGenerator {
 
     private ProcesoCivil proceso;
 
-    private String FILE;
+    private String fileProcesoCivil;
+    private String fileSalaCivil;
 
     private static Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
             Font.BOLD);
@@ -39,22 +40,30 @@ public class PdfGenerator {
 
     public PdfGenerator(ProcesoCivil proceso) throws IOException {
         this.proceso = proceso;
-        this.FILE = FILE = new java.io.File(".").getCanonicalPath() + "/InformeProcesoCivilTSS-" + new Date().getTime() + ".pdf";
+        this.fileProcesoCivil = new java.io.File(".").getCanonicalPath() + "/InformeProcesoCivilTSS-" + new Date().getTime() + ".pdf";
+        this.fileSalaCivil = new java.io.File(".").getCanonicalPath() + "/InformeSalasCivilesTSS-" + new Date().getTime() + ".pdf";
     }
 
-    public static void main(String[] args) throws IOException {
-        PdfGenerator pdf = new PdfGenerator(new ProcesoCivil(1));
-        pdf.generarPdf();
-    }
-
-    public void generarPdf() {
+    public void generarPdfProcesoCivil() {
         try {
             Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(FILE));
+            PdfWriter.getInstance(document, new FileOutputStream(fileProcesoCivil));
             document.open();
             anadirTitulo(document);
             anadirDescripcion(document);
             anadirContenido(document);
+            document.close();
+        } catch (DocumentException | IOException e) {
+            e.getMessage();
+        }
+    }
+
+    public void generarPdfSalaCivil(ArrayList<SalaCivil> salas) {
+        try {
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(fileSalaCivil));
+            document.open();
+            anadirContenidoSalaCivil(document, salas);
             document.close();
         } catch (DocumentException | IOException e) {
             e.getMessage();
@@ -128,7 +137,29 @@ public class PdfGenerator {
         }
     }
 
-    public String pathPdfFile() {
-        return this.FILE;
+    public String pathPdfProcesoCivil() {
+        return this.fileProcesoCivil;
+    }
+
+    public String pathPdfSalaCivil() {
+        return this.fileSalaCivil;
+    }
+
+    private void anadirContenidoSalaCivil(Document document, ArrayList<SalaCivil> salas) throws DocumentException {
+        Paragraph paragraph1 = new Paragraph("REPORTE SIMULACION DE SALAS CIVILES", titleFont);
+        paragraph1.setAlignment(Element.ALIGN_CENTER);
+        Paragraph paragraph2 = new Paragraph("En fecha: " + new Date(), titleFont);
+        paragraph2.setAlignment(Element.ALIGN_CENTER);
+        addEmptyLine(paragraph2, 3);
+        Paragraph paragraph3 = new Paragraph("Se realizo la simulacion de " + salas.size() + " salas civiles, "
+                + "a su vez cada sala civil atendio " + salas.get(0).getProcesos().size() + " procesos civiles.", contentFont);
+        paragraph3.setAlignment(Element.ALIGN_JUSTIFIED);
+        Paragraph paragraph4 = new Paragraph("Se obtuvieron los siguientes resultados", subtitleFont);
+        addEmptyLine(paragraph3, 1);
+        document.add(paragraph1);
+        document.add(paragraph2);
+        document.add(paragraph3);
+        document.add(paragraph4);
+
     }
 }
