@@ -230,7 +230,7 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
         }
     }
 
-    private void stop() {
+    public void stop() {
         this.stop = true;
         this.mostrarResultados();
     }
@@ -251,6 +251,7 @@ public class Animacion extends javax.swing.JPanel implements Runnable {
             f.setVisible(true);
             this.ventana.jButton2.setEnabled(true);
             this.ventana.jButton3.setEnabled(true);
+            this.ventana.jButton4.setEnabled(true);
         } catch (Exception e) {
             System.out.println("error" + e);
         }

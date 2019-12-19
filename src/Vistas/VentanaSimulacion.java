@@ -68,7 +68,7 @@ public class VentanaSimulacion extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("SIMULACION GRAFICA PROCESO CIVIL");
+        jLabel1.setText("SIMULACIÓN GRÁFICA PROCESO CIVIL");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Ver Resultados");
@@ -79,7 +79,7 @@ public class VentanaSimulacion extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("Mostrar Grafica");
+        jButton3.setText("Mostrar Gráfica");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -132,6 +132,7 @@ public class VentanaSimulacion extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.ventanaSimulacion.inicio(this);
         this.jButton1.setEnabled(false);
+        this.jButton4.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -153,7 +154,7 @@ public class VentanaSimulacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private Vistas.Animacion ventanaSimulacion;
     // End of variables declaration//GEN-END:variables

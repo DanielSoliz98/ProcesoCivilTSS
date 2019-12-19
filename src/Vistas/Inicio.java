@@ -55,7 +55,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton4.setBounds(740, 450, 100, 40);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Simulacion Grafica");
+        jButton1.setText("Simulación Gráfica");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -81,7 +81,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton2.setBounds(320, 450, 190, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("SIMULACION PROCESO CIVIL");
+        jLabel1.setText("SIMULACIÓN PROCESO CIVIL");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(260, 20, 550, 80);
 
