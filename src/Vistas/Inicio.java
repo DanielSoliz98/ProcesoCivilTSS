@@ -10,9 +10,11 @@ public class Inicio extends javax.swing.JFrame {
     
     private Flujograma flujograma;
     private VentanaSimulacion simulacion;
+    private SimulacionPersonalizada personalizada;
     
     public Inicio() {
         flujograma = new Flujograma();
+        personalizada = new SimulacionPersonalizada((this));
         initComponents();
         this.setSize(960, 540);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -62,7 +64,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(140, 450, 150, 40);
+        jButton1.setBounds(130, 450, 150, 40);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setText("Flujograma Principal");
@@ -76,9 +78,13 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Simulacion Personalizada");
-        jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
-        jButton2.setBounds(320, 450, 190, 40);
+        jButton2.setBounds(310, 450, 210, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("SIMULACIÓN PROCESO CIVIL");
@@ -120,6 +126,11 @@ public class Inicio extends javax.swing.JFrame {
         InfoGrupo grupo = new InfoGrupo();
         grupo.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.personalizada.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
